@@ -15,8 +15,8 @@ const processImage = async (url) => {
 };
 
 const uploadCSV = asyncHandler(async (req, res) => {
-  const csvPath = req.file.path;
-  const csvData = await parseCSV(csvPath);
+//   const csvPath = req.file.path;
+  const csvData = await parseCSV(req.file.buffer);;
 
   const requestId = uuidv4();
 
