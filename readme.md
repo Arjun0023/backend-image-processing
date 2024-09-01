@@ -30,34 +30,33 @@ Ensure you have the following installed:
 ### Installation
 
 1. **Clone the repository**:
-
-   \`\`\`bash
+```
+   bash
    git clone https://github.com/yourusername/image-processing-backend.git
    cd image-processing-backend
-   \`\`\`
-
+```
 2. **Install the dependencies**:
 
-   \`\`\`bash
+   ```bash
    npm install
-   \`\`\`
+  
 
 3. **Set up environment variables**:
-
+```
    Create a \`.env\` file in the root of the project and add the following:
 
-   \`\`\`bash
+   
    MONGODB_URI=mongodb://localhost:27017/image_processing
    PORT=3000
-   \`\`\`
+  ```
 
 4. **Run the server**:
 
-   \`\`\`bash
+``` 
    node server.js
-   \`\`\`
+ ```
 
-   The API will be available at \`http://localhost:3000\`.
+   The API will be available at ```http://localhost:3000\.```
 
 ## API Documentation
 
@@ -66,16 +65,15 @@ Ensure you have the following installed:
 - **Endpoint**: \`POST /api/v1/images/upload\`
 - **Description**: Upload a CSV file, validate its format, process image URLs, compress the images, and return a unique request ID.
 - **Headers**:
-  - \`Content-Type: multipart/form-data\`
+  - Content-Type: multipart/form-data
 - **Request Body** (form-data):
   - \`file\`: The CSV file to be uploaded (type: file).
 - **Response**:
 
-  \`\`\`json
-  {
+```  {
     "requestId": "b67a1d02-e33f-4893-a1d6-7c3f37e57e63"
   }
-  \`\`\`
+```
 
 ### 2. Check Processing Status
 
@@ -87,16 +85,15 @@ Ensure you have the following installed:
 
   **Pending Status**:
 
-  \`\`\`json
+```
   {
     "status": "Pending",
     "data": null
   }
-  \`\`\`
+ ```
 
   **Completed Status**:
-
-  \`\`\`json
+```
   {
     "status": "Completed",
     "data": {
@@ -111,30 +108,29 @@ Ensure you have the following installed:
       "createdAt": "2024-08-30T08:00:00Z"
     }
   }
-  \`\`\`
+```
 
 ### 3. Webhook
 
 - **Endpoint**: \`POST /api/v1/webhook\`
 - **Description**: Webhook to receive notifications when image processing is complete.
 - **Headers**:
-  - \`Content-Type: application/json\`
-- **Request Body**:
+  - \`Content-Type: application/json
 
-  \`\`\`json
-  {
+- **Request Body**:
+``` 
+{
     "requestId": "b67a1d02-e33f-4893-a1d6-7c3f37e57e63",
     "status": "Completed"
   }
-  \`\`\`
+```
 
-- **Response**:
+```- **Response**:
 
-  \`\`\`json
   {
     "message": "Webhook received"
   }
-  \`\`\`
+```
 
 ## Testing the API
 
@@ -142,8 +138,8 @@ You can use Postman or a similar tool to test the API endpoints. A Postman colle
 
 ## Project Structure
 
-\`\`\`bash
-image-processing-backend/
+
+```image-processing-backend/
 ├── config/              # Database connection
 ├── controllers/         # API endpoint logic
 ├── middleware/          # Custom middleware (async handler, error handling)
@@ -154,7 +150,7 @@ image-processing-backend/
 ├── app.js               # Express app configuration
 ├── server.js            # App entry point
 └── README.md            # Project documentation
-\`\`\`
+```
 
 ## Asynchronous Workers
 
